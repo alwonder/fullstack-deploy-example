@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'front';
+  private httpClient = inject(HttpClient);
+
+  protected time = rxResource({
+    loader: () => this.httpClient.get<{ time: string }>('http://localhost:3000/api/time')
+  })
 }
