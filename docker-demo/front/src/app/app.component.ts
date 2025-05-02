@@ -12,6 +12,6 @@ export class AppComponent {
   private httpClient = inject(HttpClient);
 
   protected time = rxResource({
-    loader: () => this.httpClient.get<{ time: string }>('http://localhost:3000/api/time')
+    loader: () => this.httpClient.get<{ time: string }>('/api/time')
   })
 }
