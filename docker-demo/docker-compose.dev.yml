@@ -1,0 +1,18 @@
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.dev
+    container_name: ng-frontend
+    volumes:
+      - "./front:/app"
+      - "/app/node_modules"
+    ports:
+      - "4200:4200"
+    command: ["npm", "start"]
+  back:
+    volumes:
+      - "./back:/app"
+    environment:
+      NODE_ENV: development
+    command: ["npm", "start"]
