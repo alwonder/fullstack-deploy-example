@@ -7,8 +7,8 @@ services:
     depends_on:
       - "back"
   back:
-    build: ./back
-    container_name: back-api
+    build: ./back-nest
+    container_name: back-nest
     ports:
       - "3000"
     environment:
