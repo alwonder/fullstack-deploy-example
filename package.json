@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "docker-compose -f docker-compose.yml up --build",
-    "start:dev": "docker-compose -f docker-compose.dev.yml up --build"
+    "start:dev": "docker-compose -f docker-compose.dev.yml up --build",
+    "start:back": "cd back && npm i && npm run start:dev",
+    "start:front": "cd front && npm i && npm start"
   },
   "keywords": [],
   "author": "",
